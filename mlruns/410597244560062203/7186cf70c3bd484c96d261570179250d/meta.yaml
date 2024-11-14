@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/410597244560062203/7186cf70c3bd484c96d261570179250d/artifacts
+deleted_time: 1731577849944
+end_time: 1731577736523
+entry_point_name: ''
+experiment_id: '410597244560062203'
+lifecycle_stage: deleted
+run_id: 7186cf70c3bd484c96d261570179250d
+run_name: youthful-shark-342
+run_uuid: 7186cf70c3bd484c96d261570179250d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731577736508
+status: 4
+tags: []
+user_id: codespace

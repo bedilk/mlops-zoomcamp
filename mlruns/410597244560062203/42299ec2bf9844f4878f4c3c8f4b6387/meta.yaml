@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/410597244560062203/42299ec2bf9844f4878f4c3c8f4b6387/artifacts
+deleted_time: 1731577912921
+end_time: 1731577876069
+entry_point_name: ''
+experiment_id: '410597244560062203'
+lifecycle_stage: deleted
+run_id: 42299ec2bf9844f4878f4c3c8f4b6387
+run_name: bald-fly-64
+run_uuid: 42299ec2bf9844f4878f4c3c8f4b6387
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731577864146
+status: 4
+tags: []
+user_id: codespace

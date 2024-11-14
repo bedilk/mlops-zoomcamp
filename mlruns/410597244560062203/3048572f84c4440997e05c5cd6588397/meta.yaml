@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/410597244560062203/3048572f84c4440997e05c5cd6588397/artifacts
+end_time: 1731577833450
+entry_point_name: ''
+experiment_id: '410597244560062203'
+lifecycle_stage: active
+run_id: 3048572f84c4440997e05c5cd6588397
+run_name: resilient-auk-463
+run_uuid: 3048572f84c4440997e05c5cd6588397
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731577820516
+status: 3
+tags: []
+user_id: codespace
