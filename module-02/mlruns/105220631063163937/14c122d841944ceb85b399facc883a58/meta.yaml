@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/105220631063163937/14c122d841944ceb85b399facc883a58/artifacts
+end_time: 1731595777769
+entry_point_name: ''
+experiment_id: '105220631063163937'
+lifecycle_stage: active
+run_id: 14c122d841944ceb85b399facc883a58
+run_name: stylish-bee-383
+run_uuid: 14c122d841944ceb85b399facc883a58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731595776918
+status: 3
+tags: []
+user_id: codespace

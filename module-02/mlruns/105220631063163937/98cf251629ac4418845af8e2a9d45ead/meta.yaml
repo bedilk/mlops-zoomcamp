@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/105220631063163937/98cf251629ac4418845af8e2a9d45ead/artifacts
+end_time: 1731595771343
+entry_point_name: ''
+experiment_id: '105220631063163937'
+lifecycle_stage: active
+run_id: 98cf251629ac4418845af8e2a9d45ead
+run_name: spiffy-toad-579
+run_uuid: 98cf251629ac4418845af8e2a9d45ead
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731595767388
+status: 3
+tags: []
+user_id: codespace

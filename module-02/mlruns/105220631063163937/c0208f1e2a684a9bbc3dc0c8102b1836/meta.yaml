@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/105220631063163937/c0208f1e2a684a9bbc3dc0c8102b1836/artifacts
+end_time: 1731595738029
+entry_point_name: ''
+experiment_id: '105220631063163937'
+lifecycle_stage: active
+run_id: c0208f1e2a684a9bbc3dc0c8102b1836
+run_name: unequaled-hen-421
+run_uuid: c0208f1e2a684a9bbc3dc0c8102b1836
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731595737681
+status: 3
+tags: []
+user_id: codespace

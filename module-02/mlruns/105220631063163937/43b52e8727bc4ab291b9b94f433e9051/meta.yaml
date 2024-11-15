@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/105220631063163937/43b52e8727bc4ab291b9b94f433e9051/artifacts
+end_time: 1731595780572
+entry_point_name: ''
+experiment_id: '105220631063163937'
+lifecycle_stage: active
+run_id: 43b52e8727bc4ab291b9b94f433e9051
+run_name: polite-lark-287
+run_uuid: 43b52e8727bc4ab291b9b94f433e9051
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731595777781
+status: 3
+tags: []
+user_id: codespace
