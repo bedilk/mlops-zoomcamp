@@ -1,55 +1,41 @@
 import pandas as pd
-from evidently.metrics import ColumnQuantileMetric, ColumnDriftMetric, DatasetMissingValuesMetric, ColumnValueRangeMetric
 from evidently.report import Report
+from evidently.metrics import ColumnQuantileMetric
 
-# Download the data
-url = "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2024-03.parquet"
-df = pd.read_parquet(url)
+# Assuming val_data is already defined and preprocessed
 
-# Convert lpep_pickup_datetime to date
-df['date'] = pd.to_datetime(df['lpep_pickup_datetime']).dt.date
+# Ensure we have a date column
+val_data['date'] = pd.to_datetime(val_data['lpep_pickup_datetime']).dt.date
 
-# Initialize lists to store daily results
 daily_medians = []
-daily_drifts = []
-daily_missing_values = []
-daily_value_ranges = []
 
-# Calculate metrics for each day
-for date in df['date'].unique():
-    daily_data = df[df['date'] == date]
+for date in val_data['date'].unique():
+    daily_data = val_data[val_data['date'] == date]
     
     report = Report(metrics=[
-        ColumnQuantileMetric(column_name="fare_amount", quantile=0.5),
-        ColumnDriftMetric(column_name="fare_amount"),
-        DatasetMissingValuesMetric(),
-        ColumnValueRangeMetric(column_name="fare_amount")
+        ColumnQuantileMetric(column_name="fare_amount", quantile=0.5)
     ])
     
-    report.run(current_data=daily_data, reference_data=None, column_mapping=None)
+    report.run(reference_data=train_data, current_data=daily_data, column_mapping=column_mapping)
     
     result = report.as_dict()
     
+    # Extract the median fare for this day
     median_fare = result['metrics'][0]['result']['current']['value']
-    drift_score = result['metrics'][1]['result']['drift_score']
-    missing_values = result['metrics'][2]['result']['current']['share_of_missing_values']
-    value_range = result['metrics'][3]['result']['current']
-    
-    daily_medians.append(median_fare)
-    daily_drifts.append(drift_score)
-    daily_missing_values.append(missing_values)
-    daily_value_ranges.append(value_range)
+    daily_medians.append((date, median_fare))
 
 # Find the maximum median fare
-max_median_fare = max(daily_medians)
-max_drift_score = max(daily_drifts)
-max_missing_values = max(daily_missing_values)
+max_median_fare = max(daily_medians, key=lambda x: x[1])
 
-# Calculate overall value range
-min_fare = min(range['min'] for range in daily_value_ranges)
-max_fare = max(range['max'] for range in daily_value_ranges)
+print(f"The maximum daily median fare amount in March 2024 is: ${max_median_fare[1]:.2f}")
+print(f"This occurred on: {max_median_fare[0]}")
 
-print(f"The maximum daily median fare amount in March 2024 is: ${max_median_fare:.2f}")
-print(f"The maximum drift score for fare_amount is: {max_drift_score:.4f}")
-print(f"The maximum percentage of missing values is: {max_missing_values*100:.2f}%")
-print(f"The overall fare amount range is: ${min_fare:.2f} to ${max_fare:.2f}")
+# Print all daily medians for verification
+print("\nAll daily median fares:")
+for date, median in sorted(daily_medians):
+    print(f"Date: {date}, Median fare: ${median:.2f}")
+
+# Print the top 5 highest daily median fares
+print("\nTop 5 highest daily median fares:")
+for date, median in sorted(daily_medians, key=lambda x: x[1], reverse=True)[:5]:
+    print(f"Date: {date}, Median fare: ${median:.2f}")
