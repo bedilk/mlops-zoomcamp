@@ -6,7 +6,12 @@ COPY [ "Pipfile", "Pipfile.lock", "./" ]
 
 RUN pipenv install --system --deploy
 
-COPY [ "batch.py", "batch.py" ]
+COPY [ "batch/batch.py", "batch.py" ]
 COPY [ "model.bin", "model.bin" ]
 
-ENTRYPOINT [ "python", "batch.py" ]
+COPY [ "integration_test.py", "integration_test.py" ]
+
+COPY [ "entrypoint.sh", "entrypoint.sh" ]
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh" ]
