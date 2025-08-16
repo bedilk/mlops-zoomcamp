@@ -7,7 +7,7 @@ COPY [ "Pipfile", "Pipfile.lock", "./" ]
 RUN pipenv install --system --deploy
 
 COPY [ "batch/batch.py", "batch.py" ]
-COPY [ "model.bin", "model.bin" ]
+#COPY [ "model.bin", "model.bin" ]
 
 COPY [ "integration_test.py", "integration_test.py" ]
 
